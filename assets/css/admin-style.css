@@ -1,0 +1,344 @@
+/* ==========================================================================
+   CF7 Popup — Admin Settings Page Styles
+   ========================================================================== */
+
+/* ---------- Variables ---------- */
+:root {
+    --cf7p-primary: #6c5ce7;
+    --cf7p-primary-light: #a29bfe;
+    --cf7p-primary-dark: #5a4bd1;
+    --cf7p-success: #00b894;
+    --cf7p-danger: #e17055;
+    --cf7p-bg: #f0f2f5;
+    --cf7p-card-bg: #ffffff;
+    --cf7p-text: #2d3436;
+    --cf7p-text-muted: #636e72;
+    --cf7p-border: #dfe6e9;
+    --cf7p-radius: 12px;
+    --cf7p-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    --cf7p-shadow-hover: 0 6px 24px rgba(108, 92, 231, 0.12);
+    --cf7p-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------- Page wrapper ---------- */
+.cf7p-wrap {
+    max-width: 900px;
+    margin: 20px auto 40px;
+    padding: 0 16px;
+}
+
+/* ---------- Header Banner ---------- */
+.cf7p-header {
+    background: linear-gradient(135deg, var(--cf7p-primary) 0%, var(--cf7p-primary-light) 100%);
+    border-radius: var(--cf7p-radius);
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 20px rgba(108, 92, 231, 0.25);
+}
+
+.cf7p-header-icon {
+    font-size: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    flex-shrink: 0;
+}
+
+.cf7p-header-text h1 {
+    margin: 0 0 4px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.3px;
+}
+
+.cf7p-header-text p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.85;
+    font-weight: 400;
+}
+
+/* ---------- Form Cards ---------- */
+.cf7p-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cf7p-card {
+    background: var(--cf7p-card-bg);
+    border-radius: var(--cf7p-radius);
+    box-shadow: var(--cf7p-shadow);
+    border: 1px solid var(--cf7p-border);
+    transition: box-shadow var(--cf7p-transition), transform var(--cf7p-transition);
+    overflow: hidden;
+}
+
+.cf7p-card:hover {
+    box-shadow: var(--cf7p-shadow-hover);
+    transform: translateY(-2px);
+}
+
+/* Card Header */
+.cf7p-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--cf7p-border);
+    background: #fafbfc;
+}
+
+.cf7p-card-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    min-width: 0;
+}
+
+.cf7p-card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--cf7p-text);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cf7p-card-id {
+    font-size: 12px;
+    color: var(--cf7p-text-muted);
+    background: #edf2f7;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+/* ---------- Toggle Switch ---------- */
+.cf7p-toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+.cf7p-toggle input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.cf7p-toggle-track {
+    width: 44px;
+    height: 24px;
+    background: #cbd5e0;
+    border-radius: 12px;
+    position: relative;
+    transition: background var(--cf7p-transition);
+    flex-shrink: 0;
+}
+
+.cf7p-toggle-track::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform var(--cf7p-transition);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.cf7p-toggle input:checked + .cf7p-toggle-track {
+    background: var(--cf7p-success);
+}
+
+.cf7p-toggle input:checked + .cf7p-toggle-track::after {
+    transform: translateX(20px);
+}
+
+.cf7p-toggle-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--cf7p-text-muted);
+}
+
+.cf7p-toggle input:checked ~ .cf7p-toggle-label {
+    color: var(--cf7p-success);
+}
+
+/* Status badge */
+.cf7p-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    flex-shrink: 0;
+}
+
+.cf7p-badge--active {
+    background: rgba(0, 184, 148, 0.12);
+    color: var(--cf7p-success);
+}
+
+.cf7p-badge--inactive {
+    background: rgba(99, 110, 114, 0.1);
+    color: var(--cf7p-text-muted);
+}
+
+/* ---------- Card Body ---------- */
+.cf7p-card-body {
+    padding: 24px;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+}
+
+.cf7p-card-body.collapsed {
+    max-height: 0 !important;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* ---------- Form Fields ---------- */
+.cf7p-field {
+    margin-bottom: 20px;
+}
+
+.cf7p-field:last-child {
+    margin-bottom: 0;
+}
+
+.cf7p-field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--cf7p-text);
+    margin-bottom: 6px;
+    letter-spacing: 0.2px;
+}
+
+.cf7p-field label .cf7p-field-hint {
+    font-weight: 400;
+    color: var(--cf7p-text-muted);
+    font-size: 12px;
+    margin-left: 4px;
+}
+
+.cf7p-field input[type="text"],
+.cf7p-field textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid var(--cf7p-border);
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--cf7p-text);
+    background: #fff;
+    transition: border-color var(--cf7p-transition), box-shadow var(--cf7p-transition);
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.cf7p-field input[type="text"]:focus,
+.cf7p-field textarea:focus {
+    outline: none;
+    border-color: var(--cf7p-primary);
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.12);
+}
+
+.cf7p-field textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* ---------- Submit Button ---------- */
+.cf7p-wrap .submit input[type="submit"] {
+    background: linear-gradient(135deg, var(--cf7p-primary) 0%, var(--cf7p-primary-dark) 100%);
+    color: #fff;
+    border: none;
+    padding: 12px 32px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform var(--cf7p-transition), box-shadow var(--cf7p-transition);
+    box-shadow: 0 2px 8px rgba(108, 92, 231, 0.25);
+    letter-spacing: 0.3px;
+}
+
+.cf7p-wrap .submit input[type="submit"]:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(108, 92, 231, 0.35);
+}
+
+.cf7p-wrap .submit input[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* ---------- Empty State ---------- */
+.cf7p-empty {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--cf7p-card-bg);
+    border-radius: var(--cf7p-radius);
+    box-shadow: var(--cf7p-shadow);
+    border: 1px solid var(--cf7p-border);
+}
+
+.cf7p-empty-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+    opacity: 0.4;
+}
+
+.cf7p-empty h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    color: var(--cf7p-text);
+}
+
+.cf7p-empty p {
+    margin: 0;
+    color: var(--cf7p-text-muted);
+    font-size: 14px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 782px) {
+    .cf7p-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px 20px;
+    }
+
+    .cf7p-card-header {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 14px 18px;
+    }
+
+    .cf7p-card-body {
+        padding: 18px;
+    }
+}

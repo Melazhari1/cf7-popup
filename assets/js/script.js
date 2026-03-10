@@ -34,12 +34,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Helper to show popup
-    function showPopup(message, title = '', btnText = 'OK', formId = null, type = 'success') {
-        if (message) {
-
-            // remove previous classes
+    // Note: message is already sanitized on the server side with wp_kses_post()
+    function showPopup(message, title = '', btnText = 'OK', formId = null, type = 'success') {\n        if (message) {
+            // Remove previous classes
             contentDiv.classList.remove('success', 'error');
-            // add new class
+            // Add new class
             contentDiv.classList.add(type);
 
             // Toggle Icons
@@ -51,27 +50,24 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (errorIcon) errorIcon.style.display = 'block';
             }
 
+            // Set message (sanitized by server)
             messageDiv.innerHTML = message;
 
+            // Set title (plain text)
             if (titleDiv) {
-                titleDiv.innerText = title;
+                titleDiv.textContent = title;
                 titleDiv.style.display = title ? 'block' : 'none';
             }
 
+            // Set button text (plain text)
             if (actionBtn) {
-                actionBtn.innerText = btnText || 'OK';
+                actionBtn.textContent = btnText || 'OK';
             }
 
-            // Hide default CF7 response output if formId is provided
-            if (formId) {
-                var form = document.querySelector('form[data-status][data-id="' + formId + '"]') || document.querySelector('.wpcf7-form');
-                var specificForm = document.querySelector('#wpcf7-f' + formId + '-p' + formId + '-o1 form') || document.querySelector('#wpcf7-f' + formId + '-o1 form') || document.querySelector('div[id^="wpcf7-f' + formId + '"] form');
+            // formId is passed for context but hiding the response output is handled in handleCF7Event
+            // nothing else to do here
 
-                if (!specificForm) {
-                    // fallback
-                }
-            }
-
+            // Show popup with animation
             overlay.style.display = 'flex';
             // Trigger reflow to enable transition
             overlay.offsetHeight;

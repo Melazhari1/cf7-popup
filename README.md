@@ -1,6 +1,15 @@
-# CF7 Popup
+=== CF7 Popup ===
+Contributors: yourname
+Tags: contact-form-7, popup, cf7
+Requires at least: 5.0
+Tested up to: 6.9
+Stable tag: 1.0
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 A WordPress plugin that displays custom popup modals after Contact Form 7 form submissions.
+
+**Tested up to:** WordPress 6.5
 
 ## Features
 
@@ -44,9 +53,42 @@ A WordPress plugin that displays custom popup modals after Contact Form 7 form s
 
 Works on all modern browsers with CSS3 support.
 
+## Multilingual Support
+
+This plugin supports multiple languages using WPML and Polylang.
+
+### Using WPML (WordPress Multilingual Plugin)
+
+1. Install and activate [WPML](https://wpml.org/)
+2. Configure your popup settings in the **CF7 Popups** admin panel
+3. Go to **WPML > String Translations**
+4. Search for "cf7_popup" to find all registered popup strings
+5. Translate each string to your desired languages
+6. Save changes
+
+### Using Polylang
+
+1. Install and activate [Polylang](https://polylang.pro/)
+2. Configure your popup settings in the **CF7 Popups** admin panel
+3. Go to **Languages > Strings translations** (if using Polylang Pro)
+4. Search for "cf7_popup" to find all registered popup strings
+5. Translate each string to your desired languages
+6. Save changes
+
+### How It Works
+
+- When you save popup settings, all strings are automatically registered for translation
+- The plugin detects which multilingual plugin is active (WPML or Polylang)
+- On the frontend, translated strings are automatically loaded based on the current language
+- WPML is checked first; if not active or translation not found, Polylang is used as fallback
+
 ## Author
 
 Melazhari
+
+## License
+
+GPLv2 or later
 
 ## Version
 
